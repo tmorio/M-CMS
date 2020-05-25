@@ -155,66 +155,72 @@ if(!empty($_GET['postid'])){
 
 				function contentAdd(value) {
 					var content = document.getElementById('postText');
-					var insertString = "";
+					var insertStringA = "";
+					var insertStringB = "";
 					switch(value){
 						case 1:
-							insertString = "** 太字にする文字列  **";
+							insertStringA = "** ";
+							insertStringB = " **";
 							break;
 						case 2:
-							insertString = "\n```\n// ここにコードを書いて下さい。\n```";
+							insertStringA = "\n```\n";
+							insertStringB = "\n```";
 							break;
 						case 3:
-							insertString = "\n- 要素1\n- 要素2\n- 要素3";
+							insertStringA = "\n- 要素1\n- 要素2\n- 要素3";
 							break;
 						case 4:
-							insertString = "> 引用する文字列\n";
+							insertStringA = "> ";
+							insertStringB = "\n";
 							break;
 						case 5:
-							insertString = "[リンクづける文字列](URL)\n";
+							insertStringA = "[リンクづける文字列](URL)\n";
 							break;
 						case 6:
-							insertString = "* 斜体にする文字列 *";
+							insertStringA = "* ";
+							insertStringB = " *";
 							break;
 						case 7:
-							insertString = '<font color="16進数で色">色を適用する文字列</font>';
+							insertStringA = '<font color="16進数で色">';
+							insertStringB = '</font>';
 							break;
                                                 case 8:
-                                                        insertString = '\n![代替テキスト](画像のURL "画像のタイトル")';
+                                                        insertStringA = '\n![代替テキスト](画像のURL "画像のタイトル")';
                                                         break;
                                                 case 9:
-                                                        insertString = '  \n';
+                                                        insertStringB = '  \n';
                                                         break;
 
 					}
-					content.value = content.value.substr(0, content.selectionStart) + insertString + content.value.substr(content.selectionStart);
+					content.value = content.value.substr(0, content.selectionStart) + insertStringA + content.value.substr(content.selectionStart, content.selectionEnd - content.selectionStart) + insertStringB + content.value.substr(content.selectionEnd);
 				}
 
                                 function headlineAdd(value) {
                                         var content = document.getElementById('postText');
-                                        var insertString = "";
-
+                                        var insertStringA = "";
+					var insertStringB = "";
                                         switch(value){
                                                 case 1:
-                                                        insertString = "\n# 見出し\n";
+                                                        insertStringA = "\n# ";
                                                         break;
                                                 case 2:
-                                                        insertString = "\n## 見出し\n";
+                                                        insertStringA = "\n##";
                                                         break;
                                                 case 3:
-                                                        insertString = "\n### 見出し\n";
+                                                        insertStringA = "\n### ";
                                                         break;
                                                 case 4:
-                                                        insertString = "\n#### 見出し\n";
+                                                        insertStringA = "\n#### ";
                                                         break;
                                                 case 5:
-                                                        insertString = "\n##### 見出し\n";
+                                                        insertStringA = "\n##### ";
                                                         break;
                                                 case 6:
-                                                        insertString = "\n####### 見出し\n";
+                                                        insertStringA = "\n####### ";
                                                         break;
 
                                         }
-					content.value = content.value.substr(0, content.selectionStart) + insertString + content.value.substr(content.selectionStart);
+					content.value = content.value.substr(0, content.selectionStart) + insertStringA + content.value.substr(content.selectionStart, content.selectionEnd - content.selectionStart) + insertStringB + content.value.substr(content.selectionEnd);
                                 }
 
 
@@ -225,6 +231,9 @@ if(!empty($_GET['postid'])){
 					$('select').formSelect();
 				});
 				$('.dropdown-trigger').dropdown();
+				$(document).ready(function() {
+					$('textarea#postText').characterCounter();
+				});
 			</script>
 		</footer>
 </body>
