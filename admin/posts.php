@@ -29,7 +29,7 @@ if(empty($_SESSION['userNo'])){
                                 }
 				echo "作成日：" . htmlspecialchars($data['CreatedAt'], ENT_QUOTES, 'UTF-8');
 				echo '<div style="margin: 0 0 0 auto;">';
-				if($data['Draft'] != 1){ echo '<a class="waves-effect waves-light btn blue" href="read.php?id=' . $data['dataID'] . '"><i class="material-icons left">open_in_new</i>開く</a>&nbsp;&nbsp;';}
+				if($data['Draft'] != 1){ echo '<a class="waves-effect waves-light btn blue" target="_blank" href="read.php?id=' . $data['dataID'] . '"><i class="material-icons left">open_in_new</i>開く</a>&nbsp;&nbsp;';}
 				echo '<a class="waves-effect waves-light btn" href="editor.php?postid=' . $data['dataID'] . '"><i class="material-icons left">edit</i>編集</a>&nbsp;&nbsp;';
 				echo '<a class="waves-effect waves-light btn red" href="delete.php?postid=' . $data['dataID']  . '"><i class="material-icons left">delete</i>削除</a>';
 				echo '</div>';

@@ -76,17 +76,18 @@ if(!empty($_GET['postid'])){
 						<label for="postTitle">タイトル</label>
 					</div>
 					<br>
-					<div class="input-field col s12" >
-						<select name="category">
-							<option value="" disabled selected>カテゴリーを選択してください。</option>
-							<option value="1">プログラミング</option>
-							<option value="2">日常</option>
-							<option value="3">研修</option>
-						</select>
-						<label>カテゴリー</label>
-					</div>
-					<br>
+					<a class='dropdown-trigger btn' href='#' data-target='selHeadline'><i class="material-icons left">format_size</i>見出し</a>
+					<a class="waves-effect waves-light btn" onclick="contentAdd(1)"><i class="material-icons left">format_bold</i>太字</a>&nbsp;
+					<a class="waves-effect waves-light btn" onclick="contentAdd(3)"><i class="material-icons left">format_list_bulleted</i>リスト</a>&nbsp;
+					<a class="waves-effect waves-light btn" onclick="contentAdd(4)"><i class="material-icons left">format_quote</i>引用</a>&nbsp;
+					<a class="waves-effect waves-light btn" onclick="contentAdd(6)"><i class="material-icons left">format_italic</i>斜線</a>&nbsp;
+					<a class="waves-effect waves-light btn" onclick="contentAdd(7)"><i class="material-icons left">format_color_text</i>文字色</a>
 
+					<br><br>
+					<a class="waves-effect waves-light btn" onclick="contentAdd(2)"><i class="material-icons left">code</i>コード</a>&nbsp;
+					<a class="waves-effect waves-light btn" onclick="contentAdd(5)"><i class="material-icons left">insert_link</i>リンク</a>&nbsp;
+					<a class="waves-effect waves-light btn" onclick="contentAdd(8)"><i class="material-icons left">photo_camera</i>画像</a> 
+					<br><br>
 					<div class="s12" style="border:solid 1px #d3d3d3;padding:5px;">
 						<div class="row" style="margin:0;">
 							<div class="input-field col s12">
@@ -120,6 +121,14 @@ if(!empty($_GET['postid'])){
 			</div>
 			
 	</div>
+	<ul id='selHeadline' class='dropdown-content'>
+		<li><a href="#!" onclick="headlineAdd(1)">見出し 1</a></li>
+		<li><a href="#!" onclick="headlineAdd(2)">見出し 2</a></li>
+		<li><a href="#!" onclick="headlineAdd(3)">見出し 3</a></li>
+		<li><a href="#!" onclick="headlineAdd(4)">見出し 4</a></li>
+		<li><a href="#!" onclick="headlineAdd(5)">見出し 5</a></li>
+		<li><a href="#!" onclick="headlineAdd(6)">見出し 6</a></li>
+	</ul>
 		<footer>
 			<script>
 				function post_click(value) {
@@ -143,12 +152,69 @@ if(!empty($_GET['postid'])){
 					}
 					postData.submit();
 				}
+
+				function contentAdd(value) {
+					switch(value){
+						case 1:
+							document.getElementById('postText').value += "** 太字にする文字列  **";
+							break;
+						case 2:
+							document.getElementById('postText').value += "\n```\n//ここにコードを書いて下さい。\n```";
+							break;
+						case 3:
+							document.getElementById('postText').value += "\n- 要素1\n- 要素2\n- 要素3";
+							break;
+						case 4:
+							document.getElementById('postText').value += "> 引用する文字列\n";
+							break;
+						case 5:
+							document.getElementById('postText').value += "[リンクづける文字列](URL)\n";
+							break;
+						case 6:
+							document.getElementById('postText').value += "* 斜体にする文字列 *";
+							break;
+						case 7:
+							document.getElementById('postText').value += '<font color="16進数で色">色を適用する文字列</font>';
+							break;
+                                                case 8:
+                                                        document.getElementById('postText').value += '\n![代替テキスト](画像のURL "画像のタイトル")';
+                                                        break;
+
+					}
+				}
+
+                                function headlineAdd(value) {
+                                        switch(value){
+                                                case 1:
+                                                        document.getElementById('postText').value += "\n# 見出し";
+                                                        break;
+                                                case 2:
+                                                        document.getElementById('postText').value += "\n## 見出し";
+                                                        break;
+                                                case 3:
+                                                        document.getElementById('postText').value += "\n### 見出し";
+                                                        break;
+                                                case 4:
+                                                        document.getElementById('postText').value += "\n#### 見出し";
+                                                        break;
+                                                case 5:
+                                                        document.getElementById('postText').value += "\n##### 見出し";
+                                                        break;
+                                                case 6:
+                                                        document.getElementById('postText').value += "\n####### 見出し";
+                                                        break;
+
+                                        }
+                                }
+
+
 				$(document).ready(function(){
 					$('.modal').modal();
 				});
 				$(document).ready(function(){
 					$('select').formSelect();
 				});
+				$('.dropdown-trigger').dropdown();
 			</script>
 		</footer>
 </body>
