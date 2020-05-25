@@ -8,7 +8,7 @@ if(empty($_SESSION['userNo'])){
 
 ?>
 
-<a class="waves-effect waves-light btn" href="settings.php"><i class="material-icons left">arrow_back</i>戻る</a><br>
+<a class="waves-effect waves-light btn z-depth-0" href="settings.php"><i class="material-icons left">arrow_back</i>戻る</a><br>
 <div class="container" style="color:#000;">
 	<h3>Version Infomation</h3>
 	<div class="valign-wrapper">
@@ -16,7 +16,7 @@ if(empty($_SESSION['userNo'])){
 		<h4>Ver 1.0</h4>
 	</div><br>
 	<b>
-		Release: 2020/5/20<br>
+		Release: 2020/5/26<br>
 		Update Channel: Main - LivePatch<br>
 		Organization Name: <?php echo LAB_NAME; ?><br>
 		License ID: 20248BW-BDUWUG8236NDBWIAKK82621<br><br>

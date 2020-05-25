@@ -46,8 +46,8 @@ $dataInfo = $stmt->fetch();
 
     </head>
     <body>
-        <span class="subContent" style="vertical-align:middle;"><?php echo htmlspecialchars($listInfo['Name'], ENT_QUOTES, 'UTF-8'); ?></span>
         <div class="container">
+	    <span style="font-size:2.0rem;"><?php echo htmlspecialchars($listInfo['Name'], ENT_QUOTES, 'UTF-8'); ?></span>
             <div class="objectMargin">
 		<div id="markdownOutput"></div>
             </div>

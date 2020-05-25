@@ -56,7 +56,7 @@ if(!empty($_GET['postid'])){
 			<div class="nav-wrapper black-text">
 				<img class="logo-image" src="img/logo.png">
 				<ul class="right">
-					<a class="btn waves-effect waves-light" href="logout.php"><i class="material-icons left">exit_to_app</i>ログアウト</a>
+					<a class="btn waves-effect waves-light z-depth-0" href="logout.php"><i class="material-icons left">exit_to_app</i>ログアウト</a>
 					&thinsp;
 				</ul>
 			</div>
@@ -66,7 +66,7 @@ if(!empty($_GET['postid'])){
 	<div class="editorBoard">
 			<div class="settingInfo" style="border: solid 1px #d3d3d3;border-style:none solid none none;overflow:auto;">
 				<form method="post" name="postData" id="postData" action="publish.php">
-					<a class="waves-effect waves-light btn" href="settings.php?page=posts"><i class="material-icons left">arrow_back</i>戻る</a><br>
+					<a class="waves-effect waves-light btn red z-depth-0" href="settings.php?page=posts"><i class="material-icons left">arrow_back</i>変更を破棄して戻る</a><br>
 					<h3>新規投稿・編集</h3>
 					
 					<br>
@@ -75,27 +75,27 @@ if(!empty($_GET['postid'])){
 						<input id="postTitle" name="title" type="text" class="validate" value="<?php echo htmlspecialchars($listID['Name'], ENT_QUOTES, 'UTF-8'); ?>">
 						<label for="postTitle">タイトル</label>
 					</div>
-					<br>
-					<a class='dropdown-trigger btn' href='#' data-target='selHeadline'><i class="material-icons left">format_size</i>見出し</a>
-					<a class="waves-effect waves-light btn" onclick="contentAdd(1)"><i class="material-icons left">format_bold</i>太字</a>&nbsp;
-					<a class="waves-effect waves-light btn" onclick="contentAdd(3)"><i class="material-icons left">format_list_bulleted</i>リスト</a>&nbsp;
-					<a class="waves-effect waves-light btn" onclick="contentAdd(4)"><i class="material-icons left">format_quote</i>引用</a>&nbsp;
-					<a class="waves-effect waves-light btn" onclick="contentAdd(6)"><i class="material-icons left">format_italic</i>斜線</a>&nbsp;
-					<a class="waves-effect waves-light btn" onclick="contentAdd(7)"><i class="material-icons left">format_color_text</i>文字色</a>
-
-					<br><br>
-					<a class="waves-effect waves-light btn" onclick="contentAdd(2)"><i class="material-icons left">code</i>コード</a>&nbsp;
-					<a class="waves-effect waves-light btn" onclick="contentAdd(5)"><i class="material-icons left">insert_link</i>リンク</a>&nbsp;
-					<a class="waves-effect waves-light btn" onclick="contentAdd(8)"><i class="material-icons left">photo_camera</i>画像</a> 
-					<br><br>
+					<a class='dropdown-trigger btn-small z-depth-0' href='#' data-target='selHeadline'><i class="material-icons left">format_size</i>見出し</a>
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(1)"><i class="material-icons left">format_bold</i>太字</a>&nbsp;
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(4)"><i class="material-icons left">format_quote</i>引用</a>&nbsp;
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(6)"><i class="material-icons left">format_italic</i>斜線</a>&nbsp;
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(7)"><i class="material-icons left">format_color_text</i>文字色</a>&nbsp;
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(9)"><i class="material-icons left">subdirectory_arrow_left</i>改行</a>
+					<div style="margin:5px 0;"></div>
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(3)"><i class="material-icons left">format_list_bulleted</i>リスト</a>&nbsp;
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(2)"><i class="material-icons left">code</i>コード</a>&nbsp;
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(5)"><i class="material-icons left">insert_link</i>リンク</a>&nbsp;
+					<a class="waves-effect waves-light btn-small z-depth-0" onclick="contentAdd(8)"><i class="material-icons left">photo_camera</i>画像</a>
+					<div style="margin:10px 0;"></div>
 					<div class="s12" style="border:solid 1px #d3d3d3;padding:5px;">
 						<div class="row" style="margin:0;">
 							<div class="input-field col s12">
-								<textarea id="postText" name="content" class="materialize-textarea"  style="height:50vh;"><?php echo htmlspecialchars($dataInfo['Text'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+								<textarea id="postText" name="content" class="materialize-textarea"  style="height:55vh;"><?php echo htmlspecialchars($dataInfo['Text'], ENT_QUOTES, 'UTF-8'); ?></textarea>
 								<label for="postText">本文（Markdown）</label>
 							</div>
 						</div>
 					</div>
+					<br>
 
 				</form>
 			</div>
@@ -106,11 +106,11 @@ if(!empty($_GET['postid'])){
 
 					<?php
 						if(empty($_GET['postid'])){
-							echo '<a class="waves-effect waves-light btn" onclick="post_click(0);"><i class="material-icons left">save</i>下書きに保存</a>';
-							echo '<a class="waves-effect waves-light btn right" onclick="post_click(1);"><i class="material-icons right">send</i>投稿</a>';
+							echo '<a class="waves-effect waves-light btn orange darken-3 z-depth-0" onclick="post_click(0);"><i class="material-icons left">save</i>下書きに保存</a>';
+							echo '<a class="waves-effect waves-light btn right blue z-depth-0" onclick="post_click(1);"><i class="material-icons right">send</i>投稿</a>';
 						}else{
-							echo '<a class="waves-effect waves-light btn" onclick="update_click(0);"><i class="material-icons left">save</i>下書きにして保存</a>';
-							echo '<a class="waves-effect waves-light btn right" onclick="update_click(1);"><i class="material-icons right">send</i>更新</a>';
+							echo '<a class="waves-effect waves-light btn orange darken-3 z-depth-0" onclick="update_click(0);"><i class="material-icons left">save</i>下書きにして保存</a>';
+							echo '<a class="waves-effect waves-light btn right blue z-depth-0" onclick="update_click(1);"><i class="material-icons right">send</i>更新</a>';
 						}
 					?>
 				</div>
@@ -154,57 +154,67 @@ if(!empty($_GET['postid'])){
 				}
 
 				function contentAdd(value) {
+					var content = document.getElementById('postText');
+					var insertString = "";
 					switch(value){
 						case 1:
-							document.getElementById('postText').value += "** 太字にする文字列  **";
+							insertString = "** 太字にする文字列  **";
 							break;
 						case 2:
-							document.getElementById('postText').value += "\n```\n//ここにコードを書いて下さい。\n```";
+							insertString = "\n```\n// ここにコードを書いて下さい。\n```";
 							break;
 						case 3:
-							document.getElementById('postText').value += "\n- 要素1\n- 要素2\n- 要素3";
+							insertString = "\n- 要素1\n- 要素2\n- 要素3";
 							break;
 						case 4:
-							document.getElementById('postText').value += "> 引用する文字列\n";
+							insertString = "> 引用する文字列\n";
 							break;
 						case 5:
-							document.getElementById('postText').value += "[リンクづける文字列](URL)\n";
+							insertString = "[リンクづける文字列](URL)\n";
 							break;
 						case 6:
-							document.getElementById('postText').value += "* 斜体にする文字列 *";
+							insertString = "* 斜体にする文字列 *";
 							break;
 						case 7:
-							document.getElementById('postText').value += '<font color="16進数で色">色を適用する文字列</font>';
+							insertString = '<font color="16進数で色">色を適用する文字列</font>';
 							break;
                                                 case 8:
-                                                        document.getElementById('postText').value += '\n![代替テキスト](画像のURL "画像のタイトル")';
+                                                        insertString = '\n![代替テキスト](画像のURL "画像のタイトル")';
+                                                        break;
+                                                case 9:
+                                                        insertString = '  \n';
                                                         break;
 
 					}
+					content.value = content.value.substr(0, content.selectionStart) + insertString + content.value.substr(content.selectionStart);
 				}
 
                                 function headlineAdd(value) {
+                                        var content = document.getElementById('postText');
+                                        var insertString = "";
+
                                         switch(value){
                                                 case 1:
-                                                        document.getElementById('postText').value += "\n# 見出し";
+                                                        insertString = "\n# 見出し\n";
                                                         break;
                                                 case 2:
-                                                        document.getElementById('postText').value += "\n## 見出し";
+                                                        insertString = "\n## 見出し\n";
                                                         break;
                                                 case 3:
-                                                        document.getElementById('postText').value += "\n### 見出し";
+                                                        insertString = "\n### 見出し\n";
                                                         break;
                                                 case 4:
-                                                        document.getElementById('postText').value += "\n#### 見出し";
+                                                        insertString = "\n#### 見出し\n";
                                                         break;
                                                 case 5:
-                                                        document.getElementById('postText').value += "\n##### 見出し";
+                                                        insertString = "\n##### 見出し\n";
                                                         break;
                                                 case 6:
-                                                        document.getElementById('postText').value += "\n####### 見出し";
+                                                        insertString = "\n####### 見出し\n";
                                                         break;
 
                                         }
+					content.value = content.value.substr(0, content.selectionStart) + insertString + content.value.substr(content.selectionStart);
                                 }
 
 

@@ -5,9 +5,9 @@ if(empty($_SESSION['userNo'])){
         header("Location: login.php");
 }
 
-                echo '<a class="waves-effect waves-light btn" href="settings.php"><i class="material-icons left">arrow_back</i>戻る</a><br>';
+                echo '<a class="waves-effect waves-light btn z-depth-0" href="settings.php"><i class="material-icons left">arrow_back</i>戻る</a><br>';
                 echo '<h3>メディア管理</h3>';
-                echo '<a class="waves-effect waves-light btn modal-trigger" href="#addUser" onclick=""><i class="material-icons left">cloud_upload</i>アップロード</a><br><br>';
+                echo '<a class="waves-effect waves-light btn-large z-depth-0 modal-trigger" href="#addUser" onclick=""><i class="material-icons left">cloud_upload</i>アップロード</a><br><br>';
 
 		$query = "SELECT * FROM archiveList WHERE Owner = :UserID";
 		$stmt = $dbh->prepare($query);
