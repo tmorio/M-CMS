@@ -96,7 +96,7 @@ switch($_GET['md']){
 		$stmt = $dbh->prepare($query);
 		$stmt->bindParam(':content', $_POST['content'], PDO::PARAM_STR);
 		$stmt->bindParam(':ownerID', $_SESSION['userNo'], PDO::PARAM_INT);
-		$stmt->bindParam(':postID', $dataID['dataID']  , PDO::PARAM_INT);
+		$stmt->bindParam(':dataID', $dataID['dataID']  , PDO::PARAM_INT);
 		$stmt->execute();
 
 		$_SESSION['ToastMes'] = '記事を下書きに保存しました。';
@@ -124,7 +124,7 @@ switch($_GET['md']){
 		$stmt = $dbh->prepare($query);
 		$stmt->bindParam(':content', $_POST['content'], PDO::PARAM_STR);
 		$stmt->bindParam(':ownerID', $_SESSION['userNo'], PDO::PARAM_INT);
-		$stmt->bindParam(':postID', $dataID['dataID']  , PDO::PARAM_INT);
+		$stmt->bindParam(':dataID', $dataID['dataID']  , PDO::PARAM_INT);
 		$stmt->execute();
 
 		$_SESSION['ToastMes'] = '記事を更新しました。';
