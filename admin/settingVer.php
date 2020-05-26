@@ -18,8 +18,7 @@ if(empty($_SESSION['userNo'])){
 	<b>
 		Release: 2020/5/26<br>
 		Update Channel: Main - LivePatch<br>
-		Organization Name: <?php echo LAB_NAME; ?><br>
-		License ID: 20248BW-BDUWUG8236NDBWIAKK82621<br><br>
+		Organization Name: <?php echo BLOG_NAME; ?><br><br>
 	</b>
 	<h3>Update Infomation</h3>
 	<h3>License</h3>

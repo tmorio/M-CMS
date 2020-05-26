@@ -41,7 +41,7 @@ $dataInfo = $stmt->fetch();
                 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
                 <script type="text/javascript" src="js/materialize.min.js"></script>
 
-        	<title><?php echo htmlspecialchars($listInfo['Name'], ENT_QUOTES, 'UTF-8'); ?> - もりかぷの日記</title>
+        	<title><?php echo htmlspecialchars($listInfo['Name'], ENT_QUOTES, 'UTF-8'); ?> - <?php echo BLOG_NAME; ?></title>
 		<script src="js/marked.min.js"></script>
 
     </head>
@@ -50,7 +50,7 @@ $dataInfo = $stmt->fetch();
             <nav class="blue">
                 <div class="nav-wrapper">
                     <!-- <a href="./index.php" class="brand-logo"><img src="img/portallogo.png" class="logo-img"></a> -->
-                    &nbsp;もりかぷの日記
+                    &nbsp;<?php echo BLOG_NAME; ?>
                     <a href="#" data-target="sideNavMobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down" style="padding: 0 1vw 0 0;">
                         <li><a href="index.php">Home</a></li>

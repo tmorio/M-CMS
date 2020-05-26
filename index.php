@@ -20,7 +20,7 @@ $stmt->execute();
 <!doctype html>
 <html>
     <head>
-        <title>M-CMS</title>
+        <title><?php echo BLOG_NAME; ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/style2.css">
@@ -35,7 +35,7 @@ $stmt->execute();
             <nav class="blue">
                 <div class="nav-wrapper">
                     <!-- <a href="./index.php" class="brand-logo"><img src="img/portallogo.png" class="logo-img"></a> -->
-		    &nbsp;もりかぷの日記
+		    &nbsp;<?php echo BLOG_NAME; ?>
                     <a href="#" data-target="sideNavMobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down" style="padding: 0 1vw 0 0;">
                         <li><a href="index.php">Home</a></li>
@@ -45,8 +45,6 @@ $stmt->execute();
             </nav>
         </div>
         <ul class="sidenav" id="sideNavMobile">
-            <a href=""><img src="img/blog.png" class="centerImage"></a>
-            <li><div class="divider"></div></li>
             <li><a href="index.php" class="waves-effect"><i class="material-icons">home</i>ホーム</a></li>
         </ul>
 
