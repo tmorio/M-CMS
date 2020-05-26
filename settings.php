@@ -66,29 +66,6 @@ $result = $stmt->fetch();
 		<!-- 設定表示 -->
 		<div class="settingInfo" style="border: solid 1px #d3d3d3;border-style:none solid none none;overflow:auto;">
 <?php
-switch ($_GET['mes']) {
-	case 1:
-		echo '<div class="row"><div class="col s12 m12 pink lighten-5"><h5 class="valign-wrapper"><i style="font-size: 2.5rem;" class="material-icons orange-text text-darken-5">warning</i><span styke="color:#fff;">';
-		echo '&nbsp現在のパスワードが違います。</span></h5></div></div>';
-		break;
-	case 2:
-		echo '<div class="row"><div class="col s12 m12 light-blue accent-4"><h5 class="valign-wrapper"><i style="font-size: 2.5rem;color:#fff;" class="material-icons">check</i><span style="color:#fff;">';
-		echo '&nbsp設定を更新しました。</span></h5></div></div>';
-		break;
-	case 3:
-		echo '<div class="row"><div class="col s12 m12 light-blue accent-4"><h5 class="valign-wrapper"><i style="font-size: 2.5rem;color:#fff;" class="material-icons">check</i><span style="color:#fff;">';
-		echo '&nbspユーザーを追加しました。</span></h5></div></div>';
-		break;
-	case 4:
-		echo '<div class="row"><div class="col s12 m12 light-blue accent-4"><h5 class="valign-wrapper"><i style="font-size: 2.5rem;color:#fff;" class="material-icons">check</i><span style="color:#fff;">';
-		echo '&nbspデータベースから削除しました。</span></h5></div></div>';
-                break;
-	case 5:
-		echo '<div class="row"><div class="col s12 m12 pink lighten-5"><h5 class="valign-wrapper"><i style="font-size: 2.5rem;" class="material-icons orange-text text-darken-5">warning</i><span styke="color:#fff;">';
-		echo '&nbsp確認用パスワードが一致しません。</span></h5></div></div>';
-		break;
-}
-
 switch ($_GET['page']) {
 	default:
 		require_once('./admin/home.php');
@@ -109,6 +86,7 @@ switch ($_GET['page']) {
 		require_once('./admin/uploader.php');
 		break;
 	case userinfo:
+		require_once('./admin/userInfo.php');
 		break;
 	case mediaEdit:
 		require_once('./admin/mediaEdit.php');

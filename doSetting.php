@@ -12,7 +12,7 @@ try{
 	exit;
 }
 
-$query = "SELECT * FROM AdminUsers WHERE ID = :adminID";
+$query = "SELECT * FROM Users WHERE ID = :adminID";
 $stmt = $dbh->prepare($query);
 $stmt->bindParam(':adminID', $_SESSION['userNo'], PDO::PARAM_INT);
 $stmt->execute();
@@ -29,27 +29,19 @@ switch($_GET['Setup']){
 	default:
 		exit(0);
 		break;
-	case chName:
-		$query = "UPDATE Settings SET LabName = :newLabName WHERE ID = 1";
-		$stmt = $dbh->prepare($query);
-		$stmt->bindParam(':newLabName', $_POST['newLabName'], PDO::PARAM_STR);
-		$stmt->execute();
-		header("Location: ./settings.php?mes=2");
-		exit(0);
-		break;
 	case chPass:
 		if ($_POST['newPassword'] != $_POST['newPasswordVerify']){
 			header("Location: ./settings.php?mes=5");
 			exit(2);
 		}
-		$query = "SELECT * FROM AdminUsers WHERE ID = :UserID";
+		$query = "SELECT * FROM Users WHERE ID = :UserID";
 		$stmt = $dbh->prepare($query);
 		$stmt->bindParam(':UserID', $_SESSION['userNo'], PDO::PARAM_STR);
 		$stmt->execute();
 		$result = $stmt->fetch();
 
 		if (password_verify($_POST['nowPassword'], $result['Password'])){
-			$stmt = $dbh->prepare("UPDATE AdminUsers SET Password = ? WHERE ID = ?");
+			$stmt = $dbh->prepare("UPDATE Users SET Password = ? WHERE ID = ?");
 			$stmt->execute(array(password_hash($_POST['newPassword'], PASSWORD_DEFAULT), $_SESSION['userNo']));
 			header("Location: ./settings.php?mes=2");
 			exit(0);
@@ -64,24 +56,16 @@ switch($_GET['Setup']){
 		$stmt->bindParam(':studentName', $_POST['studentName'], PDO::PARAM_STR);
 		$stmt->bindParam(':studentID', $_POST['studentID'], PDO::PARAM_STR);
 		$stmt->execute();
-		header("Location: ./settings.php?page=members&mes=3");
-		exit(0);
-		break;
-	case updateUser:
-		$query = "UPDATE Users SET Name = :newName, studentID = :newID WHERE ID = :userID";
-		$stmt = $dbh->prepare($query);
-		$stmt->bindParam(':newName', $_POST['newStudentName'], PDO::PARAM_STR);
-		$stmt->bindParam(':newID', $_POST['newStudentID'], PDO::PARAM_STR);
-		$stmt->bindParam(':userID', $_POST['updateUserID'], PDO::PARAM_INT);
-		$stmt->execute();
-		header("Location: ./settings.php?page=members&mes=2");
+		header("Location: ./settings.php?page=members");
 		exit(0);
 		break;
 	case delUser:
-		$query = "DELETE FROM History WHERE UserID = :userID";
-		$stmt = $dbh->prepare($query);
-		$stmt->bindParam(':userID', $_POST['deluserid'], PDO::PARAM_STR);
-		$stmt->execute();
+		if($_POST['deluserid'] == 1){
+			echo 'マスターは削除できません。';
+			exit(2);
+			break;
+		}
+
 		$query = "DELETE FROM Users WHERE ID = :userID";
 		$stmt = $dbh->prepare($query);
 		$stmt->bindParam(':userID', $_POST['deluserid'], PDO::PARAM_STR);

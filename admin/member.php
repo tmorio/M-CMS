@@ -28,7 +28,7 @@ if(empty($_SESSION['userNo'])){
                                 echo '<span class="title">' . htmlspecialchars($data['Name'], ENT_QUOTES, 'UTF-8') . " <br>" . htmlspecialchars($data['UserID'], ENT_QUOTES, 'UTF-8') . " - " . htmlspecialchars($data['Email'], ENT_QUOTES, 'UTF-8')  . '</span>';
 
                                 echo '<span class="right">';
-                                echo '<a class="waves-effect waves-light btn z-depth-0" href="?page=info&user=' . $data['ID'] . '"><i class="material-icons left">edit</i>詳細・編集</a>';
+                                echo '<a class="waves-effect waves-light btn z-depth-0" href="?page=userinfo&userid=' . $data['ID'] . '"><i class="material-icons left">edit</i>詳細・編集</a>';
                                 echo '</span>';
                                 echo '<br><br>';
                                 echo '</li>';
