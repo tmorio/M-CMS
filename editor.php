@@ -56,10 +56,11 @@ if(!empty($_GET['postid'])){
 		<nav>
 			<div class="nav-wrapper black-text">
 				<img class="logo-image" src="img/logo.png">
-				<ul class="right">
-					<a class="btn waves-effect waves-light z-depth-0" href="logout.php"><i class="material-icons left">exit_to_app</i>ログアウト</a>
-					&thinsp;
-				</ul>
+                                <ul class="right">
+                                        <a class="btn waves-effect waves-light z-depth-0" href="index.php" target="_blank" style="margin-left:0;margin-right:0;"><i class="material-icons left">open_in_new</i>サイトを開く</a>
+                                        <a class="btn waves-effect waves-light z-depth-0" href="logout.php" style="margin-left:0;margin-right:0;"><i class="material-icons left">exit_to_app</i>ログアウト</a>
+                                        &thinsp;
+                                </ul>
 			</div>
 		</nav>
 	</div>

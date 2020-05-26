@@ -1,0 +1,379 @@
+html {
+    min-height: 100%;
+    height: 100%;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    height:100%;
+    font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+}
+
+a {  
+  color: inherit;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    border-top: 1px #fff solid;
+}
+
+.whiteColor{
+    color:#fff;
+}
+
+.whiteSolid {
+    border: 2px #fff solid;
+}
+
+.blueColor {
+   background-color:#0070bf;
+}
+
+.logo-img {
+    max-height: 64px;
+    padding: 5px 10px;
+}
+
+.footer-logo-img {
+    max-height: 64px;
+    padding: 0px 0px;
+}
+
+@media (max-width: 600px) {
+   .logo-img { 
+        max-height: 56px !important;
+   }
+}
+
+.centerImage {
+    display: block;
+    color: #ffffff;
+    margin: 15px auto;
+    text-align: center;
+    width:90%;
+    height:auto;
+}
+
+.topBack{
+    height:calc(100% - 64px - 50px);
+    object-fit: cover;
+    background-image: url("../img/background.jpg");
+    background-color:rgba(0,0,0,0.5);
+    background-blend-mode:darken;
+    background-size:cover;
+    background-position: center center;
+}
+
+@media (max-width: 720px) {
+   .topBack { 
+        background-image: url("../img/background.jpg");
+        background-position: center right;
+   }
+}
+
+@media (max-width: 720px) {
+   .topBack { 
+       height:calc(100% - 56px);
+   }
+}
+
+.topContent{
+    height:calc(100% - 64px);
+}
+
+@media (max-width: 600px) {
+   .topContent { 
+        height: calc(100% - 56px);
+   }
+}
+
+.titlePadding {
+    padding:20px 0;
+}
+
+.blockPadding {
+    padding:10px 0 40px;
+}
+
+.pageTitlePadding {
+   padding:55px 0;
+}
+
+.centerText {
+    text-align:center;
+}
+
+.boldText {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.centerObject {
+    position: absolute;
+    top: 48%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.buttomObject {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.mainTitleText {
+    font-size:2.7rem;
+    font-weight: bold;
+}
+
+.mainTitle {
+    font-size:2.5vmax;
+    font-weight: bold;
+    padding: 0 0 0.5vh;
+}
+
+.subContent{
+  font-size: 3vmin;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+@media (max-width: 663px){
+  .subContent {
+    font-size:1.35rem;
+  }
+  .boldText {
+    font-size:1.2rem;
+  }
+}
+
+.subButtonContent{
+  font-size: 3.5vmin;
+  font-weight: bold;
+}
+
+.flatButton {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  font-size:16px;
+  background-image: linear-gradient(45deg, #2190ff 0%, #007bf5 100%);
+  transition: .4s;
+}
+
+.castBox {
+    padding: 12px 1em;
+    background: #FFF;
+    border: solid 2px #add6ff;
+    border-radius: 5px;
+}
+
+.iconBox{
+    width:100px;
+    height:100px;
+}
+
+.castListGrid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns:1fr 1fr 1fr;
+}
+
+@media (max-width: 993px){
+  .castListGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 663px){
+  .castListGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+.siteGrid {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(auto-fit, 200px);
+    justify-content: center;
+}
+
+@media (max-width: 993px){
+  .siteGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.boxUserName {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.dualGrid {
+  column-count: 2;
+  column-gap: 15px;
+  column-fill:auto;
+}
+
+@media (max-width: 993px){
+  .dualGrid {
+    column-count: 1;
+    column-gap: 15px;
+    column-fill:auto;
+  }
+}
+
+.worksObject {
+    break-inside: avoid;
+    border-radius: 3px;
+    background-color:#eee;
+    margin-bottom: 10px;
+    border: 1px solid #bdbdbd;
+}
+
+.worksTitle {
+    width:100%;
+    padding : 10px;
+    font-size:1.3em;
+}
+
+.worksImage {
+    width :100%;
+    height: auto;
+    text-align:center;
+}
+
+.worksText {
+    width:100%;
+    padding : 0 10px 10px;
+}
+
+.gridPadding{
+    padding: 0 0 20px;
+}
+
+.serviceGrid {
+    padding: 5px; 0;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, 35px);
+    justify-content: center;
+}
+
+.serviceIcon {
+ width: 32px;
+ height: auto;
+}
+
+.objectMargin {
+    margin: 5vh 0;
+}
+
+.objectPadding {
+    padding: 2vh 0;
+}
+
+.gridObject {
+    height:auto;
+    width:100%;
+}
+
+.headObject {
+    position: absolute;
+    top: 23%;
+    left: 5%;
+    transform: translateY(-50%);
+
+}
+
+.pageTitleObject {
+    position: absolute;
+    top: 23%;
+    left: 5%;
+    transform: translateY(-50%);
+
+}
+
+.titleBack{
+    height: calc(28% - 64px);
+    object-fit: cover;
+/*background: #0749ff;
+background: -moz-linear-gradient(-45deg,  #0749ff 0%, #89ddff 99%);
+background: -webkit-linear-gradient(-45deg,  #0749ff 0%,#89ddff 99%);
+background: linear-gradient(135deg,  #0749ff 0%,#89ddff 99%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0749ff', endColorstr='#89ddff',GradientType=1 );
+*/
+    background-image: url("../img/background.jpg");
+    background-color:rgba(0,0,0,0.5);
+    background-blend-mode: darken;
+    background-size: cover;
+    background-position: center center;
+}
+
+.titleBack2{
+    height: calc(28% - 64px);
+    object-fit: cover;
+    background-image: url(../img/back3.jpg);
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: darken;
+    background-size: cover;
+    background-position: center center;
+}
+
+.timeline {
+  list-style: none;
+}
+.timeline > li {
+  margin-bottom: 0px;
+}
+
+.timeline-content > h3 {
+   font-size: 1.25em;
+   margin: 10 0 ;
+}
+
+/* for Desktop */
+@media ( min-width : 640px ){
+  .timeline > li {
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+  }
+  .timeline-date {
+    width: 110px;
+    float: left;
+    margin-top: 20px;
+  }
+  .timeline-content {
+    width: 75%;
+    float: left;
+    border-left: 3px #8feaff solid;
+    padding-left: 30px;
+  }
+  .timeline-content:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #00aaff;
+    position: absolute;
+    left: 106px;
+    top: 24px;
+    border-radius: 100%;
+  }
+}
+
+.boxRight{
+ width: 100%;
+ margin:10px 0 0 0;
+}
