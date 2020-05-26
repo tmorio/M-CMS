@@ -8,18 +8,19 @@ if(empty($_SESSION['userNo'])){
 	header("Location: login.php");
 }
 
+        require_once('./myid.php');
+
+        $strcode = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8mb4'");
+        try {
+                $dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_ID, DB_PASS, $strcode);
+                $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        } catch (PDOException $e) {
+                echo $e->getMessage();
+                exit;
+        }
+
+
 if(!empty($_GET['postid'])){
-	require_once('./myid.php');
-
-	$strcode = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8mb4'");
-	try {
-		$dbh = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_ID, DB_PASS, $strcode);
-		$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-	} catch (PDOException $e) {
-		echo $e->getMessage();
-		exit;
-	}
-
 	$query = "SELECT * FROM archiveList WHERE ID = :postID AND Owner = :nowOwner";
 	$stmt = $dbh->prepare($query);
 	$stmt->bindParam(':postID', $_GET['postid'], PDO::PARAM_INT);
@@ -116,7 +117,25 @@ if(!empty($_GET['postid'])){
 				</div>
 				<div class="postMenu">
 					<h3>画像の挿入</h3>
-					画像クリックで挿入します。<br>
+					<p>画像クリックで挿入します。</p>
+				<?php
+				$query = "SELECT * FROM Media WHERE Owner = :UserID";
+				$stmt = $dbh->prepare($query);
+				$stmt->bindParam(':UserID', $_SESSION['userNo'], PDO::PARAM_INT);
+				$stmt->execute();
+				$mediaInfo = $stmt->fetchAll();
+
+				if(count($mediaInfo) != 0){
+						echo '<div class="mediaMGrid">';
+						foreach($mediaInfo as $data){
+								echo '<a href="#" onclick="addServerMedia('  . "'" . htmlspecialchars($data['linkPath'], ENT_QUOTES, 'UTF-8') . "'" . ')"><div class="mediaMBox">';
+								echo '<img class="photoMBox" src="./storage/' . htmlspecialchars($data['linkPath'], ENT_QUOTES, 'UTF-8') . '">';
+								echo '</div></a>';
+						}
+						echo '</div>';
+
+				}
+				?>
 				</div>
 			</div>
 			
@@ -193,6 +212,11 @@ if(!empty($_GET['postid'])){
 
 					}
 					content.value = content.value.substr(0, content.selectionStart) + insertStringA + content.value.substr(content.selectionStart, content.selectionEnd - content.selectionStart) + insertStringB + content.value.substr(content.selectionEnd);
+				}
+
+				function addServerMedia(urlPath) {
+					var content = document.getElementById('postText');
+					content.value = content.value.substr(0, content.selectionStart) + '\n![' + urlPath + '](storage/' + urlPath + ' "' + urlPath + '")' + content.value.substr(content.selectionStart, content.selectionEnd - content.selectionStart) + "\n" + content.value.substr(content.selectionEnd);
 				}
 
                                 function headlineAdd(value) {

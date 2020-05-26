@@ -235,3 +235,25 @@ img.logo-image {
     background-size:cover;
     background-position: center center;
 }
+
+.mediaMGrid {
+    width:100%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 6.5vw 6.5vw 6.5vw;
+}
+.mediaMBox {
+    height: 6.5vw;
+    padding: 5px;
+    background: #FFF;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+}
+
+.photoMBox {
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    background-size:cover;
+    background-position: center center;
+}
