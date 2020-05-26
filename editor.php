@@ -90,7 +90,7 @@ if(!empty($_GET['postid'])){
 					<div class="s12" style="border:solid 1px #d3d3d3;padding:5px;">
 						<div class="row" style="margin:0;">
 							<div class="input-field col s12">
-								<textarea id="postText" name="content" class="materialize-textarea"  style="height:55vh;"><?php echo htmlspecialchars($dataInfo['Text'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+								<textarea id="postText" name="content" class="materialize-textarea"  style="height:50vh;"><?php echo htmlspecialchars($dataInfo['Text'], ENT_QUOTES, 'UTF-8'); ?></textarea>
 								<label for="postText">本文（Markdown）</label>
 							</div>
 						</div>

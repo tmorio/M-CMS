@@ -64,7 +64,7 @@ $result = $stmt->fetch();
 			<a href="?page=version" class="collection-item blue-grey-text text-darken-4"><i class="material-icons left">copyright</i>ライセンス</a>
 		</div>
 		<!-- 設定表示 -->
-		<div class="settingInfo">
+		<div class="settingInfo" style="border: solid 1px #d3d3d3;border-style:none solid none none;overflow:auto;">
 <?php
 switch ($_GET['mes']) {
 	case 1:
@@ -104,6 +104,14 @@ switch ($_GET['page']) {
 		break;
 	case version:
 		require_once('./admin/settingVer.php');
+		break;
+	case upload:
+		require_once('./admin/uploader.php');
+		break;
+	case userinfo:
+		break;
+	case mediaEdit:
+		require_once('./admin/mediaEdit.php');
 		break;
 }
 

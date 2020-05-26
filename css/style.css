@@ -204,3 +204,34 @@ img.logo-image {
     border-bottom:solid 1px #d3d3d3;
     padding:10px 0;
 }
+
+.mediaGrid {
+    width:100%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 11.2vw 11.2vw 11.2vw 11.2vw 11.2vw;
+}
+
+.mediaBox {
+    height: 11.2vw;
+    padding: 5px;
+    background: #FFF;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+}
+
+.photoBox {
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    background-size:cover;
+    background-position: center center;
+}
+
+.photoCheck {
+    height:40vh;
+    width:auto;
+    object-fit: cover;
+    background-size:cover;
+    background-position: center center;
+}

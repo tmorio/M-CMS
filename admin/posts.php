@@ -20,9 +20,13 @@ if(empty($_SESSION['userNo'])){
 					break;
 				}
 				if($counter == 0){
-					echo '<ul class="collapsible">';
+					echo '<ul class="collapsible z-depth-0">';
 				}
-				echo '<li><div class="collapsible-header">';
+				if($counter % 2 == 0){
+					echo '<li><div class="collapsible-header">';
+				}else{
+					echo '<li><div class="collapsible-header" style="background-color:#eee;">';
+				}
 				echo htmlspecialchars($data['Name'], ENT_QUOTES, 'UTF-8') . "<br>";
                                 if($data['Draft'] == 1){
                                         echo '下書き - ';

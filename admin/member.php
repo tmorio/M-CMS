@@ -14,7 +14,7 @@ if(empty($_SESSION['userNo'])){
                 $researchUsers = $stmt->fetchAll();
 
                 if(count($researchUsers) != 0){
-                        echo '<ul class="collection">';
+                        echo '<ul class="collection z-depth-0">';
 
                         foreach($researchUsers as $data){
                                 echo '<li class="collection-item avatar">';
