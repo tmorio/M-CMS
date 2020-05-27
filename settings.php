@@ -62,6 +62,7 @@ $result = $stmt->fetch();
 			<a href="?page=posts" class="collection-item blue-grey-text text-darken-4"><i class="material-icons left">edit</i>記事管理</a>
 			<a href="?page=media" class="collection-item blue-grey-text text-darken-4"><i class="material-icons left">camera_alt</i>メディア管理</a>
 			<a href="?page=members" class="collection-item blue-grey-text text-darken-4"><i class="material-icons left">group</i>ユーザー管理</a>
+			<a href="?page=setting" class="collection-item blue-grey-text text-darken-4"><i class="material-icons left">settings</i>ブログ設定</a>
 			<a href="?page=version" class="collection-item blue-grey-text text-darken-4"><i class="material-icons left">copyright</i>ライセンス</a>
 		</div>
 		<!-- 設定表示 -->
@@ -91,6 +92,9 @@ switch ($_GET['page']) {
 		break;
 	case mediaEdit:
 		require_once('./admin/mediaEdit.php');
+		break;
+	case setting:
+		require_once('./admin/blogSetting.php');
 		break;
 }
 

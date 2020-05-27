@@ -73,5 +73,15 @@ switch($_GET['Setup']){
 		header("Location: ./settings.php?page=members&mes=4");
 		exit(0);
 		break;
+	case blogSet:
+		$query = "UPDATE Settings SET Name = :newName WHERE ID = 1";
+                $stmt = $dbh->prepare($query);
+                $stmt->bindParam(':newName', $_POST['newBlogName'], PDO::PARAM_STR);
+                $stmt->execute();
+		$_SESSION['ToastMes'] = '設定を更新しました。';
+		header("Location: ./settings.php?page=setting");
+		exit(0);
+		break;
+
 }
 
