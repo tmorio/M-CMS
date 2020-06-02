@@ -15,6 +15,7 @@ try {
 $query = "SELECT * FROM archiveList";
 $stmt = $dbh->prepare($query);
 $stmt->execute();
+$posts = $stmt->fetchAll();
 ?>
 
 <!doctype html>
@@ -62,20 +63,27 @@ $stmt->execute();
         <div class="container">
                 <div class="objectMargin">
             <?php
-                $counter = 0;
-                foreach($stmt as $data){
-                    if(empty($data['ID'])){
-                        break;
-                    }
-                    if($counter == 0){
-                        echo '<ul class="collapsible">';
-                    }
-                    echo '<li><a href="read.php?id=' . $data['ID']  . '"><div class="collapsible-header">';
-                    echo htmlspecialchars($data['Name'], ENT_QUOTES, 'UTF-8');
-                    echo '</div></a></li>';
-                    $counter++;
+                if(count($posts) != 0){
+			$counter = 0;
+			foreach($posts as $data){
+				if(empty($data['ID'])){
+					break;
+				}
+				if($counter == 0){
+					echo '<ul class="collapsible">';
+				}
+				echo '<li><a href="read.php?id=' . $data['ID']	. '"><div class="collapsible-header">';
+				echo htmlspecialchars($data['Name'], ENT_QUOTES, 'UTF-8');
+				echo '</div></a></li>';
+				$counter++;
+			}
+			echo '</ul>';
+
+                }else{
+                        echo '<div class="row"><div class="col s12 m12 pink lighten-5"><h5 class="valign-wrapper"><i style="font-size: 2.5rem;" class="material-icons orange-text text-darken-5">warning</i><span style="color:#000;font-size:1.2rem;">';
+                        echo '&nbsp;&nbspこのサイトには、まだ記事が投稿されていません。</span></h5></div></div>';
                 }
-                echo '</ul>';
+
             ?>
             </div>
         </div>

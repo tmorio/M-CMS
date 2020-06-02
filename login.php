@@ -81,7 +81,7 @@ if (isset($_POST["login"])) {
 		<div class="centering">
 			<p class="image"><img src="img/logo.png" style="height:70px;weight:auto;"/></p>
 		</div>
-		<form class="col s12 m12 card blue-grey lighten-5" id="loginForm" name="loginForm" action="" method="POST" style="padding:10px;">
+		<form class="col s12 m12 card blue-grey lighten-5 z-depth-0" id="loginForm" name="loginForm" action="" method="POST" style="padding:10px;">
 			<div class="card-content grey-text text-darken-4">
 			<span class="card-title">ログイン</span>
 				<div class="row">
@@ -96,11 +96,11 @@ if (isset($_POST["login"])) {
 						<input type="password" id="password" name="password" value="" required>
 						<label for="password" class="active">Password</label>
 					</div>
-					<button class="btn waves-effect waves-ligh right" type="submit" id="login" name="login">ログイン</button>
+					<button class="btn waves-effect waves-ligh right z-depth-0" type="submit" id="login" name="login">ログイン</button>
 				</div>
 			</div>
 		</form>
-		<a href="resetrequest.php" class="btn waves-effect waves-ligh" ><i class="material-icons left">help_outline</i>パスワードをお忘れですか?</a><br><br>
+		<a href="resetrequest.php" class="btn waves-effect waves-light z-depth-0" ><i class="material-icons left">help_outline</i>パスワードをお忘れですか?</a><br><br>
 	</div>
 
 	</body>
