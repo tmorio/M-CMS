@@ -229,7 +229,7 @@ if(!empty($_GET['postid'])){
                                                         insertStringA = "\n# ";
                                                         break;
                                                 case 2:
-                                                        insertStringA = "\n##";
+                                                        insertStringA = "\n## ";
                                                         break;
                                                 case 3:
                                                         insertStringA = "\n### ";
